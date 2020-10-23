@@ -1,0 +1,1 @@
+rosgas2011 -U root -h localhost -d rgdb -c COPY (SELECT obj_id, lemmatized_text FROM articles LIMIT 100000) TO /Users/vadimivlev/Projects/projects/rg-db/art.csv DELIMITER ',' CSV HEADER
