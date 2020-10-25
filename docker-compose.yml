@@ -25,6 +25,6 @@ volumes:
 # outer network to communicate with other services ----------------------------------------------------
 networks:
   default:
-      external:
-          name: auth_proxy_network
+    external:
+        name: auth_proxy_network
 
