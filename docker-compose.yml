@@ -9,12 +9,11 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - "/home/gitupdater/rgdb/rg-db/pgdata:/var/lib/postgresql/data/pgdata"
+      - "/home/gitupdater/rgdb/pgdata:/var/lib/postgresql/data/pgdata"
       - "./dumps:/dumps"
       #  - "./etc/.pgpass:/root/.pgpass"
     environment:
       POSTGRES_USER: root
-      #POSTGRES_PASSWORD: rosgas2011
       POSTGRES_PASSWORD: root
       POSTGRES_DB: rgdb 
       PGDATA: /var/lib/postgresql/data/pgdata
