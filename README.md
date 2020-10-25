@@ -10,7 +10,7 @@ $ time docker exec -it rg-db pg_dump rgdb > dumps/rgdb.sql
 
 Копировать дамп в вольюм
 
-d cp ../dumps/rgdb.sql rg-db:/dumps/
+docker cp ../dumps/rgdb.sql rg-db:/dumps/
 
 Восстановление. 
 To reload such a script into a (freshly created) database named newdb:
