@@ -9,7 +9,7 @@ services:
     ports:
       - 5432:5432
     volumes:
-      - "/home/gitupdater/rgdb/pgdata:/var/lib/postgresql/data/pgdata"
+      - rg-db-data:/var/lib/postgresql/data/pgdata
       - "./dumps:/dumps"
       #  - "./etc/.pgpass:/root/.pgpass"
     environment:
@@ -18,9 +18,13 @@ services:
       POSTGRES_DB: rgdb 
       PGDATA: /var/lib/postgresql/data/pgdata
 
+# Данные
+volumes:
+  rg-db-data:
+      
 # outer network to communicate with other services ----------------------------------------------------
-  networks:
-    default:
-        external:
-            name: auth_proxy_network
+networks:
+  default:
+      external:
+          name: auth_proxy_network
 
