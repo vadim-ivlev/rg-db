@@ -10,17 +10,20 @@ services:
       - 5432:5432
     volumes:
       - rg-db-data:/var/lib/postgresql/data/pgdata
-      - "./dumps:/dumps"
+      - rg-db-data-dumps:/dumps
       #  - "./etc/.pgpass:/root/.pgpass"
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: root
+      POSTGRES_PASSWORD: ${RGPASS}
       POSTGRES_DB: rgdb 
       PGDATA: /var/lib/postgresql/data/pgdata
 
 # Данные
 volumes:
   rg-db-data:
+    external: true
+  rg-db-data-dumps:
+    external: true
       
 # outer network to communicate with other services ----------------------------------------------------
 networks:
