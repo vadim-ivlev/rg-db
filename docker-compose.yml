@@ -17,6 +17,7 @@ services:
       POSTGRES_PASSWORD: ${RGPASS}
       POSTGRES_DB: rgdb 
       PGDATA: /var/lib/postgresql/data/pgdata
+    command: sleep 10000
 
 # Данные
 volumes:
