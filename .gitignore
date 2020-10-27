@@ -2,4 +2,6 @@
 .idea
 .vscode/settings.json
 pgdata
+.ipynb_checkpoints
+
 
