@@ -7,28 +7,32 @@
 
 Для наполнения БД данными RG API может потребоваться 
 несколько суток. Чтобы сократить время рекомендуется хранить 
-данные и дампы данных  на внешниих томах (volumes.)
+данные и дампы данных на внешниих томах (volumes.)
 
 Перед запуском контейнера создайте если необходимо внешние тома 
 ```
 $ docker volume create rg-db-data
 $ docker volume create rg-db-data-dumps
 ```
-Команды просмотра томов и копирования данных между контейнерами и хостирующим компом.
-```
-$ docker exec -it rg-db-prod ls -lh /dumps/
-$ docker exec -it rg-db-prod rm  /dumps/rgdb.dump
-```
-сжатие дампов
-```
-pigz rgdb.dump
-```
+
 
 **Переменная окружения RGPASS**
 
 Значение переменной RGPASS определенной на хостирующем компьютере
 используется как пароль суперпользователя postgress.(r********1)
 
+## Дамп 
+
+```
+sh/dump.sh
+```
+## Восстановление данных
+
+```
+sh/restore.sh
+```
+
+---------------------------------------------------------
 ## Дамп/Восстановление данных
 
 **Способ 1.** Дамп через stdout в текстовый скрипт. 
@@ -47,7 +51,7 @@ docker cp ../dumps/rgdb.sql rg-db-prod:/dumps/
 ```
 $ time docker exec -it rg-db-prod psql -d rgdb -f /dumps/rgdb.sql
 ```
-**Способ 2.**  Дамп в бинарный формат со сжатием.
+**Способ 2.**  Дамп в бинарный формат со сжатием 0.
 
 Дамп (1.2 мин)
 ```
@@ -65,4 +69,13 @@ $ time docker exec -it rg-db-prod pg_restore -v -j 15 -c -C -d rgdb /dumps/rgdb.
 $ docker exec -it rg-db-prod psql rgdb -c '\l+ rgdb'
 ```
 
+Команды просмотра томов и копирования данных между контейнерами и хостирующим компом.
+```
+$ docker exec -it rg-db-prod ls -lh /dumps/
+$ docker exec -it rg-db-prod rm  /dumps/rgdb.dump
+```
+сжатие дампов
+```
+pigz rgdb.dump
+```
 
