@@ -9,7 +9,7 @@
 несколько суток. Чтобы сократить время рекомендуется хранить 
 данные и дампы данных на внешниих томах (volumes.)
 
-Перед запуском контейнера создайте если необходимо внешние тома 
+Перед запуском контейнера создайте внешние тома 
 ```
 $ docker volume create rg-db-data
 $ docker volume create rg-db-data-dumps
@@ -22,14 +22,16 @@ $ docker volume create rg-db-data-dumps
 используется как пароль суперпользователя postgress.(r********1)
 
 ## Дамп 
+Дампы базы данных хранятся в директории ../rgdb-dumps/rg-db.
+Чтобы создать дамп выполните команду
 
 ```
 sh/dump.sh
 ```
 ## Восстановление данных
-
+Для восстановления данных из дампа выполните
 ```
-sh/restore.sh
+sh/restore.sh ../rgdb-dumps/rg-db/rgdb....dump.gz
 ```
 
 ---------------------------------------------------------
@@ -48,6 +50,8 @@ $ time docker exec -it rg-db-prod pg_dump rgdb > ../dumps/rgdb.sql
 docker cp ../dumps/rgdb.sql rg-db-prod:/dumps/
 ```
 **Шаг 2.** Загрузка данных из текстового скрипта БД. Занимает 8 мин.
+Перед восстановлением данных
+необходимо удалить таблицы из базы данных.
 ```
 $ time docker exec -it rg-db-prod psql -d rgdb -f /dumps/rgdb.sql
 ```
@@ -58,9 +62,10 @@ $ time docker exec -it rg-db-prod psql -d rgdb -f /dumps/rgdb.sql
 $ time docker exec -it rg-db-prod pg_dump -v -Z0 -F c -f /dumps/rgdb.dump rgdb
 ```
 
-Восстановление (8 мин)
+Восстановление (8 мин). Перед восстановлением данных
+необходимо удалить таблицы из базы данных.
 ```
-$ time docker exec -it rg-db-prod pg_restore -v -j 15 -c -C -d rgdb /dumps/rgdb.dump
+$ time docker exec -it rg-db-prod pg_restore -v -j 15 -C -d rgdb /dumps/rgdb.dump
 
 ```
 
