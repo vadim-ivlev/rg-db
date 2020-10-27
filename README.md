@@ -57,7 +57,7 @@ crontab -e
     ```
     CSV файлы сохраняются в директорию csv/
 
-2. Импрорт csv в Эластик. 
+2. Импрорт csv в Эластик (30 мин)
    
    Откройте браузер
     <http://dockertest.rgwork.ru:8888/notebooks/csv-to-elastic.ipynb>. 
