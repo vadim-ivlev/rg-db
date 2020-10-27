@@ -1,7 +1,7 @@
 version: '3.1'
 
 services:
-
+  # база данных
   rg-db-prod:
     image: postgres:10.9-alpine
     container_name: rg-db-prod
@@ -19,6 +19,18 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     # command: sleep 10000
 
+  # импорт csv в Эластик
+  rg-db-notebook:
+    build: 
+        context: .
+        dockerfile: Dockerfile-base-notebook 
+    container_name: rg-db-notebook
+    restart: unless-stopped
+    ports:
+      - 8888:8888
+    volumes: 
+        - .:/home/jovyan/work
+  
 # Данные
 volumes:
   rg-db-data:
