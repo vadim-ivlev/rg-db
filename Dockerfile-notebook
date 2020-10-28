@@ -10,6 +10,9 @@ RUN pip install pandasticsearch
 # для таблиц. Не работает???
 # RUN conda install -y -c conda-forge beakerx ipywidgets
 
+WORKDIR /home/jovyan/work
+COPY notebooks .
+
 # Вход по токену
 # CMD /opt/conda/bin/jupyter notebook --notebook-dir=/home/jovyan/work --ip="*" --port=8888  --no-browser --allow-root  --NotebookApp.token="abc"
 # Вход по паролю
