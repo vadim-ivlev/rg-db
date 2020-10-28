@@ -1,10 +1,16 @@
-FROM jupyter/base-notebook:python-3.8.5
+ARG fromimage
+FROM "$fromimage"
 
 # Устанавливаем пароль в jupyter_notebook_config.py ( https://jupyter-notebook.readthedocs.io/en/stable/public_server.html )
 RUN echo "c.NotebookApp.password = 'sha1:7f38b5a551a3:036f25154235424bdc7a55ace2ede4b7941487d9'" >> /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 # драйверы для elasticsearch 
 RUN pip install elasticsearch 
+RUN pip install pandasticsearch
+# для таблиц. Не работает???
+# RUN conda install -y -c conda-forge beakerx ipywidgets
 
+# Вход по токену
 # CMD /opt/conda/bin/jupyter notebook --notebook-dir=/home/jovyan/work --ip="*" --port=8888  --no-browser --allow-root  --NotebookApp.token="abc"
+# Вход по паролю
 CMD /opt/conda/bin/jupyter notebook --notebook-dir=/home/jovyan/work --ip="*" --port=8888  --no-browser --allow-root

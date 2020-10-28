@@ -23,13 +23,20 @@ services:
   rg-db-notebook:
     build: 
         context: .
-        dockerfile: Dockerfile-base-notebook 
+        dockerfile: Dockerfile-notebook 
+        args: 
+          # - fromimage=jupyter/base-notebook:python-3.8.5
+          - fromimage=jupyter/scipy-notebook:feacdbfc2e89
+          # - fromimage=jupyter/tensorflow-notebook:45bfe5a474fa
+
     container_name: rg-db-notebook
     restart: unless-stopped
     ports:
       - 8888:8888
+    environment: 
+      - RGPASS=${RGPASS}
     volumes: 
-        - .:/home/jovyan/work
+        - ./notebooks:/home/jovyan/work
   
 # Данные
 volumes:

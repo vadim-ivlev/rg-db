@@ -4,7 +4,7 @@
 # в директорию CSVDIR
 
 
-CSVDIR="csv"
+CSVDIR="notebooks/csv"
 echo "Создаем директорию дампов $CSVDIR" 
 mkdir -p $CSVDIR
 
