@@ -23,7 +23,7 @@ deploy&copy:
         # copy new dir on server
         - scp -pr $BUILD_PATH/deploy $TARGET_SERVER:/home/gitupdater/$IMAGE_NAME
         # чтоб можно было сохранять файлы 
-        # - ssh $TARGET_SERVER "chmod -R 7777 /home/gitupdater/$IMAGE_NAME/notebooks"
+        - ssh $TARGET_SERVER "chmod -R 7777 /home/gitupdater/$IMAGE_NAME/notebooks"
 
     only:
         - production
