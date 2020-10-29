@@ -14,7 +14,7 @@ services:
       #  - "./etc/.pgpass:/root/.pgpass"
     environment:
       POSTGRES_USER: root
-      POSTGRES_PASSWORD: ${RGPASS}
+      POSTGRES_PASSWORD: $RGPASS
       POSTGRES_DB: rgdb 
       PGDATA: /var/lib/postgresql/data/pgdata
     # command: sleep 10000
@@ -35,7 +35,7 @@ services:
       - 8888:8888
     environment: 
       - RGPASS=${RGPASS}
-      - RGDSN=${RGDSN}
+      - RGDSN=$RGDSN
     # volumes: 
     #     - ./notebooks:/home/jovyan/work
   
