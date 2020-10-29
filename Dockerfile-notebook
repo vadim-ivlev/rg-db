@@ -7,6 +7,7 @@ RUN echo "c.NotebookApp.password = 'sha1:7f38b5a551a3:036f25154235424bdc7a55ace2
 # драйверы для elasticsearch 
 RUN pip install elasticsearch 
 RUN pip install pandasticsearch
+RUN pip install psycopg2-binary
 # для таблиц. Не работает???
 # RUN conda install -y -c conda-forge beakerx ipywidgets
 
