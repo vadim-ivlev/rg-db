@@ -5,9 +5,9 @@ FROM "$fromimage"
 RUN echo "c.NotebookApp.password = 'sha1:7f38b5a551a3:036f25154235424bdc7a55ace2ede4b7941487d9'" >> /home/jovyan/.jupyter/jupyter_notebook_config.py
 
 # драйверы для elasticsearch 
-RUN pip install elasticsearch 
-RUN pip install pandasticsearch
-RUN pip install psycopg2-binary
+RUN pip install --no-cache-dir elasticsearch 
+RUN pip install --no-cache-dir pandasticsearch
+RUN pip install --no-cache-dir psycopg2-binary
 # для таблиц. Не работает???
 # RUN conda install -y -c conda-forge beakerx ipywidgets
 
