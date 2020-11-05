@@ -3,7 +3,7 @@ RG-DB
 
 **База данных Postgresql**, в рамках построения рекомендательной системы RGRU.
 
-<img src="images/RG-DB.png" style="max-width:600px">
+<img src="images/RG-DB.png" style="max-width:500px">
 
 Основное хранилище данных закачанных из API RG. Наполнение данными - проект [api-rg-data-migration](https://git.rgwork.ru/masterback/api-rg-data-migration).
 Обработка данных – проект [text-processor](https://git.rgwork.ru/masterback/text-processor).
