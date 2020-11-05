@@ -1,5 +1,18 @@
-# RG-DB
-База данных postgres для документов РГ, в рамках проекта рекомендательной машины.
+RG-DB
+========
+
+**База данных Postgresql**, в рамках построения рекомендательной системы RGRU.
+
+<img src="images/RG-DB.png" style="max-width:600px">
+
+Основное хранилище данных закачанных из API RG. Наполнение данными - проект [api-rg-data-migration](https://git.rgwork.ru/masterback/api-rg-data-migration).
+Обработка данных – проект [text-processor](https://git.rgwork.ru/masterback/text-processor).
+Для экспорта данных в  Эластик используйте 
+<a href="http://dockertest.rgwork.ru:8888/notebooks/postgres-to-elastic.ipynb">postgres-to-elastic.ipynb</a>
+
+
+<a target="_blank" href="https://viewer.diagrams.net/?highlight=0000ff&edit=_blank&layers=1&nav=1&title=RG%20NLP%20project.drawio#Uhttps%3A%2F%2Fdrive.google.com%2Fuc%3Fid%3D1yflDpag5TSUrKPRsHgFzR2sBhjBY_7tz%26export%3Ddownload">Общая схема проектов</a>
+
 
 ## Настройки сервера
 
