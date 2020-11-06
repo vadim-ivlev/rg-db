@@ -2,7 +2,7 @@
 
 # Делвет дамп базы данных rgdb
 
-DUMPDIR="../rgdb-dumps/rg-db"
+DUMPDIR="/home/gitupdater/rgdb-dumps/rg-db"
 DUMPNAME="rgdb-$(date +"%Y-%m-%d-%H-%M-%S").dump"
 
 echo "Создаем директорию дампов $DUMPDIR" 
