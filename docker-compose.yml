@@ -26,7 +26,8 @@ services:
         dockerfile: Dockerfile-notebook 
         args: 
           # - fromimage=jupyter/base-notebook:python-3.8.5
-          - fromimage=jupyter/scipy-notebook:feacdbfc2e89
+          # - fromimage=jupyter/scipy-notebook:feacdbfc2e89
+          - fromimage=jupyter/scipy-notebook:42f4c82a07ff
           # - fromimage=jupyter/tensorflow-notebook:45bfe5a474fa
 
     container_name: rg-db-notebook

@@ -8,7 +8,10 @@ RUN echo "c.NotebookApp.password = 'sha1:7f38b5a551a3:036f25154235424bdc7a55ace2
 RUN pip install --no-cache-dir elasticsearch 
 RUN pip install --no-cache-dir pandasticsearch
 RUN pip install --no-cache-dir psycopg2-binary
-RUN conda install -c plotly plotly=4.12.0
+RUN pip install --no-cache-dir plotly
+RUN jupyter labextension install jupyterlab-plotly
+
+# RUN conda install -c plotly plotly=4.12.0
 # для таблиц. Не работает???
 # RUN conda install -y -c conda-forge beakerx ipywidgets
 
