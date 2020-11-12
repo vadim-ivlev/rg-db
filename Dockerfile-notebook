@@ -10,17 +10,14 @@ RUN pip install --no-cache-dir pandasticsearch
 RUN pip install --no-cache-dir psycopg2-binary
 RUN pip install --no-cache-dir plotly
 
-
-# JupyterLab renderer support
-# RUN jupyter labextension install jupyterlab-plotly
+# Plotly JupyterLab renderer support
 RUN jupyter labextension install jupyterlab-plotly@4.12.0
-
 # OPTIONAL: Jupyter widgets extension
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager plotlywidget@4.12.0
 
-# RUN conda install -c plotly plotly=4.12.0
-# для таблиц. Не работает???
-# RUN conda install -y -c conda-forge beakerx ipywidgets
+# qgrid
+RUN conda install -c conda-forge qgrid
+RUN jupyter labextension install qgrid2
 
 WORKDIR /home/jovyan/work
 COPY notebooks .
