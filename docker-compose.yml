@@ -39,7 +39,7 @@ services:
       - RGDSN=$RGDSN
     # volumes: 
     #     - ./notebooks:/home/jovyan/work
-  
+
 # Данные
 volumes:
   rg-db-data:
