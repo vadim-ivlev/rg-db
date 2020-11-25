@@ -19,7 +19,7 @@ services:
       PGDATA: /var/lib/postgresql/data/pgdata
     # command: sleep 10000
 
-  # импорт csv в Эластик
+  # миграция данных из Постгрес в Эластик
   rg-db-notebook:
     build: 
         context: .
@@ -34,6 +34,7 @@ services:
     restart: unless-stopped
     ports:
       - 8888:8888
+      - "10000-10005:10000-10005"
     environment: 
       - RGPASS=${RGPASS}
       - RGDSN=$RGDSN

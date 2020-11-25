@@ -9,6 +9,9 @@ RUN pip install --no-cache-dir elasticsearch
 RUN pip install --no-cache-dir pandasticsearch
 RUN pip install --no-cache-dir psycopg2-binary
 RUN pip install --no-cache-dir plotly
+RUN pip install --no-cache-dir bottle
+RUN pip install --no-cache-dir flask
+
 
 # Plotly JupyterLab renderer support
 RUN jupyter labextension install jupyterlab-plotly@4.12.0
